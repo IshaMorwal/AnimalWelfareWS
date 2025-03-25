@@ -1,0 +1,414 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.header .cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #f5a623;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.header .cta-btn:hover {
+    background-color: #e69520;
+    transform: scale(1.05);
+}
+
+/* Donation Form */
+.donation-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.donation-form h2 {
+    color: #4CAF50;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.donation-types {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.donation-type {
+    flex: 1;
+    background: #e8f0f2;
+    padding: 25px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.donation-type:hover {
+    transform: translateY(-5px);
+}
+
+.donation-type h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    border-bottom: 3px solid #f5a623;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.amount-card, .custom-amount-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.amount-card:hover, .custom-amount-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.amount-card::before, .custom-amount-card::before {
+    content: '\f4c4'; /* Font Awesome heart icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #f5a623;
+    opacity: 0.3;
+}
+
+.amount-card h4, .custom-amount-card h4 {
+    font-size: 2.2em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.amount-card p, .custom-amount-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.amount-card .donate-btn, .custom-amount-card .donate-btn {
+    width: 100%;
+    padding: 12px;
+    background: #f5a623;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.amount-card .donate-btn:hover, .custom-amount-card .donate-btn:hover {
+    background: #e69520;
+    transform: scale(1.05);
+}
+
+.custom-amount {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.custom-amount:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Donors Section */
+.donors-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #e8f0f2);
+}
+
+.donors-section h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.donor-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 650px;
+    background: white;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.donor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.donor-card .card-img-top {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.donor-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.donor-card .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.donor-card .card-title {
+    color: #4CAF50;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.donor-card .card-text {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.donor-card .card-footer {
+    background: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.donor-card .card-footer small {
+    color: #777;
+    font-size: 0.9em;
+}
+
+footer {
+    position: relative;
+    color: white;
+    padding: 4rem 2rem;
+    margin-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, rgba(76, 175, 80, 0.9), rgba(129, 199, 132, 0.9)), url('https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+    transition: background 0.5s ease;
+}
+
+footer:hover {
+    transform: scale(1.01);
+}
+
+footer:hover::before {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+footer p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-align: center; /* Center-align the paragraphs */
+}
+
+footer:hover p {
+    transform: translateY(-2px);
+}
+
+.footer-links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .header {
+        padding: 60px 20px;
+    }
+    .header:hover {
+        padding: 65px 20px;
+    }
+    .help-card img {
+        height: 150px;
+    }
+    .help-card {
+        margin-bottom: 15px;
+    }
+    footer {
+        padding: 3rem 1.5rem;
+    }
+    .footer-links a {
+        margin: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    .social-icons {
+        gap: 1.5rem;
+    }
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+     }
+        }

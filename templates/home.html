@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GlobalVet Guardians - Transforming animal lives worldwide through veterinary care, training, and support. Join us in our mission to save animals in need.">
+    <meta name="keywords" content="animal welfare, veterinary care, global vet, animal rescue, donate, volunteer">
+    <meta name="author" content="GlobalVet Guardians">
+    <meta property="og:title" content="GlobalVet Guardians - Saving Animals Worldwide">
+    <meta property="og:description" content="Join GlobalVet Guardians in transforming animal lives through expert veterinary care, training, and support.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+    <meta property="og:url" content="https://www.globalvetguardians.org">
+    <title>GlobalVet Guardians - Saving Animals Worldwide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            /* Light Theme Colors */
+            --primary: #388e3c; /* Forest Green */
+            --secondary: #8d6e63; /* Warm Brown */
+            --accent: #78909c; /* Slate Gray */
+            --background: #f5f5f5; /* Light Gray Background */
+            --text: #263238; /* Dark Slate */
+            --card-bg: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --sidebar-bg: #2f3e46; /* Dark background for sidebar */
+
+            /* Dark Theme Colors */
+            --dark-primary: #4caf50; /* Lighter Green */
+            --dark-secondary: #a1887f; /* Lighter Brown */
+            --dark-accent: #90a4ae; /* Lighter Gray */
+            --dark-background: #263238; /* Dark Slate */
+            --dark-text: #e0e0e0; /* Light Gray */
+            --dark-card-bg: #37474f;
+            --dark-sidebar-bg: #1b2529; /* Darker sidebar for dark mode */
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+            margin-left: 250px; /* Space for the sidebar */
+        }
+
+        body.dark-mode {
+            background: var(--dark-background);
+            color: var(--dark-text);
+        }
+
+        /* Dark Mode Adjustments */
+        body.dark-mode .hero,
+        body.dark-mode .how-we-help,
+        body.dark-mode .cta,
+        body.dark-mode footer {
+            background: linear-gradient(135deg, var(--dark-background), #37474f);
+        }
+
+        body.dark-mode .mission,
+        body.dark-mode .news,
+        body.dark-mode .featured-story {
+            background: linear-gradient(135deg, #37474f, #455a64);
+        }
+
+        body.dark-mode .quote {
+            background: linear-gradient(135deg, var(--dark-accent), var(--dark-primary));
+        }
+
+        body.dark-mode .stat,
+        body.dark-mode .mission-text {
+            background: var(--dark-card-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .mission-text p,
+        body.dark-mode .news p,
+        body.dark-mode .featured-story p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .sidebar {
+            background: var(--dark-sidebar-bg);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--dark-primary);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            background: var(--primary);
+        }
+
+        body.dark-mode .menu-toggle {
+            color: var(--dark-primary);
+        }
+
+        /* Sidebar (Navigation) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: var(--sidebar-bg);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .logo i:hover {
+            transform: rotate(20deg);
+        }
+
+        .sidebar .logo span {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .sidebar nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+
+        .sidebar nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 5px;
+            left: 1rem;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar nav a:hover::after {
+            width: 50%;
+        }
+
+        .sidebar nav a:hover {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar .donate-btn, .sidebar .shop-btn, .sidebar .young-vets {
+            width: 80%;
+            text-align: center;
+            padding: 0.7rem;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .sidebar .donate-btn {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .sidebar .donate-btn:hover {
+            background: var(--dark-secondary);
+            transform: scale(1.05);
+        }
+
+        .sidebar .shop-btn {
+            background: var(--accent);
+            color: white;
+        }
+
+        .sidebar .shop-btn:hover {
+            background: var(--dark-accent);
+            transform: scale(1.05);
+        }
+
+        .sidebar .young-vets {
+            background: var(--primary);
+            color: white;
+        }
+
+        .sidebar .young-vets:hover {
+            background: var(--dark-primary);
+            transform: scale(1.05);
+        }
+
+        /* Dark/Light Theme Toggle Button (Top-Right Corner) */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1100;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--dark-primary);
+            transform: scale(1.1);
+        }
+
+        /* Sidebar Toggle for Mobile */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../static/images/puppy.jpg') no-repeat center;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .stat {
+            background: var(--card-bg);
+            color: var(--text);
+            border-radius: 20px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat:hover {
+            transform: scale(1.1);
+            background: #f0f0f0;
+        }
+
+        body.dark-mode .stat {
+            background: var(--dark-card-bg);
+        }
+
+        body.dark-mode .stat:hover {
+            background: #455a64;
+        }
+
+        .stat h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        body.dark-mode .stat h2 {
+            color: var(--dark-primary);
+        }
+
+        .stat p {
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-accent);
+            transform: translateY(-5px);
+        }
+
+        /* Donation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideInTop 0.5s ease-out;
+        }
+
+        body.dark-mode .modal-content {
+            background: var(--dark-card-bg);
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .modal-content h2 {
+            color: var(--dark-primary);
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            padding: 0.8rem;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #f0f0f0;
+            color: var(--text);
+        }
+
+        body.dark-mode .modal-content input,
+        body.dark-mode .modal-content select {
+            background: #455a64;
+            color: var(--dark-text);
+            border-color: var(--dark-primary);
+        }
+
+        .modal-content button {
+            padding: 0.8rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background: var(--dark-secondary);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .close-modal {
+            color: var(--dark-text);
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        /* Mission Section */
+        .mission {
+            background: linear-gradient(135deg, #ffffff, var(--background));
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .mission-text {
+            max-width: 600px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .mission-text h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .mission-text h1 {
+            color: var(--dark-primary);
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .mission-image {
+            max-width: 500px;
+            position: relative;
+        }
+
+        .mission-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* How We Help Section */
+        .how-we-help {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+        }
+
+        .how-we-help h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .help-items {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .help-item {
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .help-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .help-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .help-item h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            padding: 1rem 0;
+        }
+
+        body.dark-mode .help-item h3 {
+            color: var(--dark-accent);
+        }
+
+        .help-item p {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Quote Section */
+        .quote {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .quote-text {
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .quote-text h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .quote-image {
+            max-width: 500px;
+        }
+
+        .quote-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .quote-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Featured Story Section */
+        .featured-story {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, var(--background));
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .featured-story.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .featured-story h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .featured-story h2 {
+            color: var(--dark-primary);
+        }
+
+        .featured-story p {
+            margin-bottom: 2rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .featured-story img {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-story img:hover {
+            transform: scale(1.05);
+        }
+
+        /* News Section with Carousel */
+        .news {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .news h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .news h2 {
+            color: var(--dark-primary);
+        }
+
+        .news p {
+            margin-bottom: 3rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 400px; /* Adjusted to fit one news item */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .news-item {
+            min-width: 100%; /* Each item takes the full width of the carousel */
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .news-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .news-item h3 {
+            font-size: 1.3rem;
+            color: var(--accent);
+            padding: 1rem 0;
+        }
+
+        body.dark-mode .news-item h3 {
+            color: var(--dark-accent);
+        }
+
+        .news-item p {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-prev {
+            left: -50px;
+        }
+
+        .carousel-next {
+            right: -50px;
+        }
+
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: var(--dark-primary);
+            transform: scale(1.1);
+        }
+
+        body.dark-mode .carousel-prev,
+        body.dark-mode .carousel-next {
+            background: var(--dark-primary);
+        }
+
+        body.dark-mode .carousel-prev:hover,
+        body.dark-mode .carousel-next:hover {
+            background: var(--primary);
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: var(--primary);
+        }
+
+        body.dark-mode .carousel-indicator.active {
+            background: var(--dark-primary);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .cta p {
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-items {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-item {
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .cta-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .cta-item h3 {
+            color: var(--accent);
+            padding: 1rem 0;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+    position: relative;
+    color: white;
+    padding: 4rem 2rem;
+    margin-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, rgba(76, 175, 80, 0.9), rgba(129, 199, 132, 0.9)), url('https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+    transition: background 0.5s ease;
+}
+
+footer:hover {
+    transform: scale(1.01);
+}
+
+footer:hover::before {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+footer p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-align: center; /* Center-align the paragraphs */
+}
+
+footer:hover p {
+    transform: translateY(-2px);
+}
+
+.footer-links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-primary);
+            transform: scale(1.1);
+        }
+
+        body.dark-mode .back-to-top {
+            background: var(--dark-primary);
+        }
+
+        body.dark-mode .back-to-top:hover {
+            background: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInTop {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .stat {
+                width: 180px;
+                height: 180px;
+            }
+
+            .stat h2 {
+                font-size: 2rem;
+            }
+
+            .mission {
+                flex-direction: column;
+            }
+
+            .carousel-prev {
+                left: 0;
+            }
+
+            .carousel-next {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0; /* Remove margin for mobile */
+            }
+
+            .sidebar {
+                transform: translateX(-100%); /* Hide sidebar by default on mobile */
+            }
+
+            .sidebar.active {
+                transform: translateX(0); /* Show sidebar when active */
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 8rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stat {
+                width: 150px;
+                height: 150px;
+            }
+
+            .stat h2 {
+                font-size: 1.8rem;
+            }
+
+            .carousel {
+                max-width: 300px;
+            }
+
+            .news-item img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar .logo span {
+                font-size: 1.2rem;
+            }
+
+            .sidebar nav a {
+                font-size: 0.9rem;
+            }
+
+            .sidebar .donate-btn, .sidebar .shop-btn, .sidebar .young-vets {
+                padding: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .stat {
+                width: 120px;
+                height: 120px;
+            }
+
+            .stat h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel {
+                max-width: 250px;
+            }
+
+            .news-item img {
+                height: 150px;
+            }
+
+            .carousel-prev,
+            .carousel-next {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark/Light Theme Toggle Button (Top-Right Corner) -->
+    <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark/Light Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Sidebar Toggle for Mobile -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar (Navigation) -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-paw"></i>
+            <span>Furry Hope</span>
+        </div>
+        <nav>
+            <a href="./help.html">How we help</a>
+            <a href="#cta">Support us</a>
+            <a href="#cta">Volunteer</a>
+            <a href="#cta">Request help</a>
+            <a href="#news">News</a>
+            <a href="../templates/membership.html">Membership</a>
+            <a href="../templates/Contact_us.html">Contact Us</a>
+            <a href="../templates/donate.html" class="donate-btn" onclick="openModal()">Donate</a>
+        </nav>
+    </aside>
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2>Make a Difference Today</h2>
+            <p>Your donation helps us provide life-saving care to animals in need. Every contribution counts!</p>
+            <form onsubmit="submitDonation(event)">
+                <label for="amount">Donation Amount:</label>
+                <input type="number" id="amount" name="amount" min="1" placeholder="Enter amount in USD" required>
+                <label for="frequency">Donation Frequency:</label>
+                <select id="frequency" name="frequency">
+                    <option value="one-time">One-Time</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <button type="submit">Donate Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforming Lives, One Paw at a Time</h1>
+            <p>Join us in our mission to provide care, train vets, and save animals worldwide.</p>
+            <div class="stats">
+                <div class="stat">
+                    <h2>103,962</h2>
+                    <p>Animals Treated</p>
+                </div>
+                <div class="stat">
+                    <h2>2,863</h2>
+                    <p>Vets Trained</p>
+                </div>
+                <div class="stat">
+                    <h2>1,042</h2>
+                    <p>Parcels Sent</p>
+                </div>
+            </div>
+            <a href="#mission" class="cta-button">Discover Our Impact</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="mission-text">
+            <h1>Every Animal Deserves Care</h1>
+            <p>At Furry Hope, we believe no animal should suffer in silence. We bring expert veterinary care to the most remote corners of the world, train local vets to create lasting change, and deliver life-saving supplies every single day.</p>
+        </div>
+        <div class="mission-image">
+            <img src="../static/images/dog.jpg" alt="Vet with dog">
+        </div>
+    </section>
+
+    <!-- How We Help Section -->
+    <section class="how-we-help" id="how-we-help">
+        <h2>Our Mission in Action</h2>
+        <div class="help-items">
+            <div class="help-item">
+                <img src="../static/images/home_dog.jpg" alt="Vet treating dog">
+                <h3>Heal</h3>
+                <p>Providing expert veterinary care to animals in need, no matter where they are.</p>
+            </div>
+            <div class="help-item">
+                <img src="../static/images/home_training.jpg" alt="Training group">
+                <h3>Educate</h3>
+                <p>Training vets and students to ensure long-term improvements in animal welfare.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote">
+        <div class="quote-text">
+            <h2>“Together, We Can Be the Change for Animals Worldwide.”</h2>
+            <p>Luke Gamble</p>
+            <p>FH Founder</p>
+        </div>
+        <div class="quote-image">
+            <img src="../static/images/rescue_cat.jpg" alt="Luke Gamble with dog">
+        </div>
+    </section>
+
+    <!-- Featured Story Section -->
+    <section class="featured-story" id="featured-story">
+        <h2>Featured Story: A New Home for Rescued Pets</h2>
+        <p>Learn how Furry Hope helped find a safe haven for rescued animals, providing them with the care and love they deserve.</p>
+        <img src="../static/images/home_shelter.jpg" alt="Rescued pet in a new home">
+    </section>
+
+    <!-- News Section with Carousel -->
+    <section class="news" id="news">
+        <h2>Stories of Impact</h2>
+        <p>Explore the latest updates on our global projects and the lives we’re changing.</p>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="news-item">
+                    <img src="../static/images/home_horses.jpg" alt="Horse">
+                    <h3>World Horse Day: Equine Health Initiatives</h3>
+                    <p>BY: DR ILONA OTTER | 2025-02-06 | 6 MIN READ</p>
+                </div>
+                <div class="news-item">
+                    <img src="../static/images/home_cat.jpg" alt="Vet with dog">
+                    <h3>Celebrating Women in Veterinary Science</h3>
+                    <p>BY: GLOBALVET GUARDIANS | 2025-02-05 | 7 MIN READ</p>
+                </div>
+                <div class="news-item">
+                    <img src="../static/images/home_spay.jpg" alt="Vet in surgery">
+                    <h3>Spay/Neuter Awareness: A Path to Better Welfare</h3>
+                    <p>BY: GLOBALVET GUARDIANS | 2025-02-03 | 6 MIN READ</p>
+                </div>
+            </div>
+            <button class="carousel-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-indicators">
+                <span class="carousel-indicator active" onclick="goToSlide(0)"></span>
+                <span class="carousel-indicator" onclick="goToSlide(1)"></span>
+                <span class="carousel-indicator" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <h2>Join the Movement for Animal Welfare</h2>
+        <p>Every action counts. Help us provide care, train vets, and save lives around the globe.</p>
+        <div class="cta-items">
+            <div class="cta-item">
+                <img src="../static/images/supplies.jpg" alt="Aid supplies">
+                <h3>Support Our Work</h3>
+            </div>
+            <div class="cta-item">
+                <img src="../static/images/vet_volunteer.jpg" alt="Volunteers">
+                <h3>Volunteer with GVG</h3>
+            </div>
+            <div class="cta-item">
+                <img src="../static/images/vet_volunteer.jpg" alt="Vet with animal">
+                <h3>Request Help</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Furry Hope, 4 Castle Street, Cranborne, Dorset, BH21 5PZ</p>
+        <p>Registered Charity No. 1100485 | © 2025 Furry Hope</p>
+        <div class="footer-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-conditions.html">Terms & Conditions</a>
+            <a href="./faqs.html">FAQs</a>
+            <a href="./Contact_us.html">Contact Us</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Toggle Sidebar on Mobile
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Show/Hide Back to Top Button and Featured Story on Scroll
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+
+            // Show Featured Story on Scroll
+            const featuredStory = document.querySelector('.featured-story');
+            const storyPosition = featuredStory.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (storyPosition < windowHeight * 0.75) {
+                featuredStory.classList.add('visible');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close sidebar on mobile after clicking a link
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Stats Counter Animation
+        const stats = document.querySelectorAll('.stat h2');
+        const animateStats = () => {
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(',', ''));
+                let count = 0;
+                const increment = target / 100;
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        stat.textContent = Math.ceil(count).toLocaleString();
+                        setTimeout(updateCount, 20);
+                    } else {
+                        stat.textContent = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger stats animation when section is in view
+        const heroSection = document.querySelector('.hero');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateStats();
+                observer.disconnect();
+            }
+        }, { threshold: 0.5 });
+        observer.observe(heroSection);
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load theme from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const theme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+
+        // Donation Modal
+        function openModal() {
+            document.getElementById('donationModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('donationModal').style.display = 'none';
+        }
+
+        function submitDonation(event) {
+            event.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const frequency = document.getElementById('frequency').value;
+            alert(`Thank you for your ${frequency} donation of $${amount}! Your support helps save animal lives.`);
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('donationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Keyboard Accessibility for Modal
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Carousel Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.news-item');
+        const totalSlides = slides.length;
+        const carouselTrack = document.querySelector('.carousel-track');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Optional: Auto-slide every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8e6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #4a8f3d;
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.step {
+    flex: 1;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    position: relative;
+    color: #666;
+    font-weight: bold;
+}
+
+.step.active {
+    background-color: #4a8f3d;
+    color: #fff;
+}
+
+.step::before {
+    content: "🐾";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    display: none;
+}
+
+.step.active::before {
+    display: block;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+input {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Avatar Selection */
+.avatar-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.avatar-selection label {
+    text-align: center;
+    cursor: pointer;
+}
+
+.avatar-selection img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-selection input:checked + img {
+    border-color: #4a8f3d;
+    transform: scale(1.1);
+}
+
+.avatar-selection span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+/* Buttons */
+.btn {
+    background-color: #4a8f3d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #367d2b;
+}
+
+.btn-secondary {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #c9641b;
+}
+
+/* Confirmation */
+.confirmation {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+.avatar-confirm {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}

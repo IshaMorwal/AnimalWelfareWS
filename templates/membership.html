@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Welcome - Membership</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <main class="container"> <!-- Replaced div with main for main content -->
+        <h1>Join the Animal Welcome Family!</h1>
+        <p>Support our furry, feathered, and wild friends with a membership.</p>
+
+        <!-- Membership Tiers -->
+        <section class="membership-tiers"> <!-- Replaced div with section for content grouping -->
+            <article class="tier"> <!-- Replaced div with article for independent content -->
+                <img src="../static/images/bird.jpg" alt="Bird" class="animal-icon">
+                <h2>Bird Buddies</h2>
+                <p>$3/month</p>
+                <ul>
+                    <li>Individual membership</li>
+                    <li>Monthly bird-watching tips</li>
+                    <li>Access to "Wild Chat" forums</li>
+                </ul>
+                <button onclick="window.location.href='../templates/joinNow.html?tier=Bird Buddies'">Join Now</button>
+            </article>
+            <article class="tier">
+                <img src="../static/images/dog.jpg" alt="Puppy" class="animal-icon">
+                <h2>Puppy Pals</h2>
+                <p>$5/month</p>
+                <ul>
+                    <li>Monthly newsletter</li>
+                    <li>Virtual pet adoption</li>
+                    <li>Access to community forums</li>
+                </ul>
+                <button onclick="window.location.href='../templates/joinNow.html?tier=Puppy Pals'">Join Now</button>
+            </article>
+            <article class="tier">
+                <img src="../static/images/tiger.jpg" alt="Tiger" class="animal-icon">
+                <h2>Tiger Tribe</h2>
+                <p>$15/month</p>
+                <ul>
+                    <li>All Puppy Pals perks</li>
+                    <li>Exclusive animal wallpapers</li>
+                    <li>Vote on new sanctuary animals</li>
+                </ul>
+                <button onclick="window.location.href='../templates/joinNow.html?tier=Tiger Tribe'">Join Now</button>
+            </article>
+            <article class="tier">
+                <img src="../static/images/bear.jpg" alt="Bear" class="animal-icon">
+                <h2>Bear Brigade</h2>
+                <p>$20/month</p>
+                <ul>
+                    <li>Family membership (up to 4 people)</li>
+                    <li>Animal-themed family activity pack</li>
+                    <li>Live sanctuary webcam access</li>
+                </ul>
+                <button onclick="window.location.href='../templates/joinNow.html?tier=Bear Brigade'">Join Now</button>
+            </article>
+            <article class="tier">
+                <img src="../static/images/penguin.jpg" alt="Penguin" class="animal-icon">
+                <h2>Penguin Protectors</h2>
+                <p>$30/month</p>
+                <ul>
+                    <li>All Tiger Tribe perks</li>
+                    <li>Eco-friendly merchandise (e.g., reusable tote)</li>
+                    <li>Name a rescued penguin</li>
+                </ul>
+                <button onclick="window.location.href='../templates/joinNow.html?tier=Penguin Protectors'">Join Now</button>
+            </article>
+        </section>
+
+        <!-- Membership Form -->
+        <section id="membership-form" class="form-container hidden"> <!-- Replaced div with section -->
+            <h2>Sign Up for <span id="tier-name"></span></h2>
+            <form id="signup-form" onsubmit="handleSubmit(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" placeholder="Your Phone (Optional)">
+                <select id="tier-select" required>
+                    <option value="" disabled selected>Select Your Tier</option>
+                    <option value="Bird Buddies">Bird Buddies - $3/month</option>
+                    <option value="Puppy Pals">Puppy Pals - $5/month</option>
+                    <option value="Tiger Tribe">Tiger Tribe - $15/month</option>
+                    <option value="Bear Brigade">Bear Brigade - $20/month</option>
+                    <option value="Penguin Protectors">Penguin Protectors - $30/month</option>
+                </select>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="hideForm()">Cancel</button>
+            </form>
+        </section>
+    </main>
+    <script src="../static/script.js"></script>
+</body>
+</html>
